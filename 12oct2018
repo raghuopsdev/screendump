@@ -1024,4 +1024,246 @@ drwxr-xr-x 7 root root 4096 Oct 12 07:14 [0m[01;34moctober[0m
 drwxr-xr-x 6 root root 4096 Oct 11 06:51 [01;34mstarter[0m
 ]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# knife upload october
 Updated october
-]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 coo
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# history
+    1  cd chef-repo
+    2  knife ssl check
+    3  ll
+    4  ssh-keygen -t rsa
+    5  ll
+    6  cd /root/.ssh/
+    7  ll
+    8  vi id_rsa.pub 
+    9  cd /home/ec2-user/
+   10  ll
+   11  knife
+   12  cd chef-repo/
+   13  ll
+   14  ssh 172.31.19.204
+   15  knife bootstrap 172.31.19.204 --identity-file=/home/ec2-user/chef-repo/.chef/raghuopsdev.pem --node-name webserver
+   16  ls -la
+   17  cd .chef/
+   18  ll
+   19  cd ..
+   20  ll
+   21  pwd
+   22  mkdir temp
+   23  cd temp/
+   24  ll
+   25  vi directory.rb
+   26  chef-client --local-mode directory.rb 
+   27  ll
+   28  vi httpd.rb
+   29  chef-client -z directory.rb 
+   30  chef-client -z httpd.rb 
+   31  vi httpd.rb 
+   32  chef-client -z httpd.rb 
+   33  ps -ef | grep httpd
+   34  curl ifconfig.co
+   35  vi httpd.rb 
+   36  chef-client -z httpd.rb 
+   37  cd ..
+   38  ll
+   39  cd cookbooks/
+   40  ll
+   41  chef generate cookbook october
+   42  ll
+   43  cd october/
+   44  ll
+   45  cd recipes/
+   46  ll
+   47  cp ../../../temp/httpd.rb .
+   48  ll
+   49  cat httpd.rb >> default.rb 
+   50  vi default.rb 
+   51  cd ..
+   52  pwd
+   53  cd ..
+   54  ll
+   55  knife upload october
+   56  knife node run_list add webserver recipe['october']
+   57  pwd
+   58  ll
+   59  cd october/
+   60  ll
+   61  chef generate template index.html
+   62  ll
+   63  ls templates/
+   64  vi templates/index.html.erb 
+   65  ll
+   66  vi recipes/default.rb 
+   67  cd ..
+   68  ll
+   69  knife upload october
+   70  history
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# 
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# 
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# cd ..
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo[root@ip-172-31-20-198 chef-repo]# ll
+total 20
+drwxr-xr-x 4 root root 4096 Oct 12 07:07 [0m[01;34mcookbooks[0m
+drwx------ 2 root root 4096 Oct 12 07:02 [01;34mnodes[0m
+-rw-r--r-- 1 root root 2341 Oct 11 06:51 README.md
+drwxr-xr-x 2 root root 4096 Oct 11 06:51 [01;34mroles[0m
+drwxr-xr-x 2 root root 4096 Oct 12 07:06 [01;34mtemp[0m
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo[root@ip-172-31-20-198 chef-repo]# cd ..
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# ll
+total 114904
+-rw-r--r-- 1 root     root         90112 Oct 12 07:16 12oct2018
+-rw-r--r-- 1 root     root     117553262 Sep 26 18:31 [0m[01;31mchefdk-3.3.23-1.el7.x86_64.rpm[0m
+drwxr-xr-x 7 root     root          4096 Oct 12 07:02 [01;34mchef-repo[0m
+-rw-r--r-- 1 ec2-user ec2-user      7836 Oct 11 06:51 [01;31mchef-starter (18).zip[0m
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# ^C
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# git info
+git: 'info' is not a git command. See 'git --help'.
+
+The most similar commands are
+	init
+	mailinfo
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# his[K[K[Khistory > history-workstation-12oct
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# ll
+total 114908
+-rw-r--r-- 1 root     root         90112 Oct 12 07:16 12oct2018
+-rw-r--r-- 1 root     root     117553262 Sep 26 18:31 [0m[01;31mchefdk-3.3.23-1.el7.x86_64.rpm[0m
+drwxr-xr-x 7 root     root          4096 Oct 12 07:02 [01;34mchef-repo[0m
+-rw-r--r-- 1 ec2-user ec2-user      7836 Oct 11 06:51 [01;31mchef-starter (18).zip[0m
+-rw-r--r-- 1 root     root          1574 Oct 12 07:19 history-workstation-12oct
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# git add 2[K12oct2018 
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# git add history-workstation-12oct 
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# git commit .
+[?1049h[?1h=[?2004h[1;24r[?12;25h[?12l[?25h[27m[m[H[2J[?25l[24;1H"/home/ec2-user/.git/COMMIT_EDITMSG" 20L, 514C[2;1H# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Committer: root <root@ip-172-31-20-198.ap-south-1.compute.internal>
+#
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#[7Cnew file:   12oct2018
+#[7Cnew file:   history-workstation-12oct
+#[7Cdeleted:    node-nov1118
+#[7Cdeleted:    nov1118
+#
+# Untracked files:
+#[7Cchef-repo/
+#[7Cchef-starter (18).zip
+#[7Cchefdk-3.3.23-1.el7.x86_64.rpm
+#
+[1m[34m~                                                                                            [22;1H~                                                                                            [23;1H~                                                                                            [1;1H[?12l[?25h[?25l[m[24;1H[1m-- INSERT --[m[24;13H[K[1;1H[?12l[?25h[?25lW[?12l[?25h[?25lo[?12l[?25h[?25lr[?12l[?25h[?25lk[?12l[?25h[?25ls[?12l[?25h[?25lt[?12l[?25h[?25la[?12l[?25h[?25lt[?12l[?25h[?25li[?12l[?25h[?25lo[?12l[?25h[?25ln[?12l[?25h[?25l[1;11H[K[1;11H[?12l[?25h[?25l[1;10H[K[1;10H[?12l[?25h[?25l[1;9H[K[1;9H[?12l[?25h[?25l[1;8H[K[1;8H[?12l[?25h[?25l[1;7H[K[1;7H[?12l[?25h[?25l[1;6H[K[1;6H[?12l[?25h[?25l[1;5H[K[1;5H[?12l[?25h[?25l[1;4H[K[1;4H[?12l[?25h[?25l[1;3H[K[1;3H[?12l[?25h[?25l[1;2H[K[1;2H[?12l[?25h[?25l[1;1H[K[1;1H[?12l[?25h[?25l1[?12l[?25h[?25l2[?12l[?25h[?25l [?12l[?25h[?25lo[?12l[?25h[?25lc[?12l[?25h[?25lt[?12l[?25h[?25lo[?12l[?25h[?25lb[?12l[?25h[?25le[?12l[?25h[?25lr[?12l[?25h[24;1H[K[1;10H[?25l[?12l[?25h[?25l[24;1H:[?12l[?25hWq![?25l[1m[37m[41mE492: Not an editor command: Wq![1;10H[?12l[?25h[?25l[m[24;1H[K[24;1H:[?12l[?25hwq![?25l".git/COMMIT_EDITMSG" 20L, 524C written
+[?2004l[?1l>[?12l[?25h[?1049l[master 37daffb] 12 october
+ Committer: root <root@ip-172-31-20-198.ap-south-1.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 4 files changed, 1103 insertions(+), 75846 deletions(-)
+ create mode 100644 12oct2018
+ create mode 100644 history-workstation-12oct
+ delete mode 100644 node-nov1118
+ delete mode 100644 nov1118
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# 
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# git push or[K[K-u origin master
+Username for 'https://github.com': raghuopsdev
+Password for 'https://raghuopsdev@github.com': 
+Counting objects: 4, done.
+Compressing objects:  25% (1/4)   Compressing objects:  50% (2/4)   Compressing objects:  75% (3/4)   Compressing objects: 100% (4/4)   Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)   Writing objects:  50% (2/4)   Writing objects:  75% (3/4)   Writing objects: 100% (4/4)   Writing objects: 100% (4/4), 12.70 KiB | 6.35 MiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/1)   [Kremote: Resolving deltas: 100% (1/1)   [Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/raghuopsdev/screendump.git
+   97c5ebb..37daffb  master -> master
+Branch master set up to track remote branch master from origin.
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# ll
+total 114912
+-rw-r--r-- 1 root     root         94208 Oct 12 07:19 12oct2018
+-rw-r--r-- 1 root     root     117553262 Sep 26 18:31 [0m[01;31mchefdk-3.3.23-1.el7.x86_64.rpm[0m
+drwxr-xr-x 7 root     root          4096 Oct 12 07:02 [01;34mchef-repo[0m
+-rw-r--r-- 1 ec2-user ec2-user      7836 Oct 11 06:51 [01;31mchef-starter (18).zip[0m
+-rw-r--r-- 1 root     root          1574 Oct 12 07:19 history-workstation-12oct
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# cd che[K[K[K[K[K[Kgit add chef[K[K[K[K[K[K[K[K[K[K[K[Kc[Kcd chef-repo/cookbooks/
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# ll
+total 12
+-rw-r--r-- 1 root root  588 Oct 11 06:51 chefignore
+drwxr-xr-x 7 root root 4096 Oct 12 07:14 [0m[01;34moctober[0m
+drwxr-xr-x 6 root root 4096 Oct 11 06:51 [01;34mstarter[0m
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# tar -czvf october/[K.tar.gz october
+october/
+october/.delivery/
+october/.delivery/build_cookbook/
+october/.delivery/build_cookbook/secrets/
+october/.delivery/build_cookbook/secrets/fakey-mcfakerton
+october/.delivery/build_cookbook/chefignore
+october/.delivery/build_cookbook/metadata.rb
+october/.delivery/build_cookbook/data_bags/
+october/.delivery/build_cookbook/data_bags/keys/
+october/.delivery/build_cookbook/data_bags/keys/delivery_builder_keys.json
+october/.delivery/build_cookbook/Berksfile
+october/.delivery/build_cookbook/README.md
+october/.delivery/build_cookbook/test/
+october/.delivery/build_cookbook/test/fixtures/
+october/.delivery/build_cookbook/test/fixtures/cookbooks/
+october/.delivery/build_cookbook/test/fixtures/cookbooks/test/
+october/.delivery/build_cookbook/test/fixtures/cookbooks/test/metadata.rb
+october/.delivery/build_cookbook/test/fixtures/cookbooks/test/recipes/
+october/.delivery/build_cookbook/test/fixtures/cookbooks/test/recipes/default.rb
+october/.delivery/build_cookbook/LICENSE
+october/.delivery/build_cookbook/.kitchen.yml
+october/.delivery/build_cookbook/recipes/
+october/.delivery/build_cookbook/recipes/functional.rb
+october/.delivery/build_cookbook/recipes/lint.rb
+october/.delivery/build_cookbook/recipes/unit.rb
+october/.delivery/build_cookbook/recipes/deploy.rb
+october/.delivery/build_cookbook/recipes/default.rb
+october/.delivery/build_cookbook/recipes/publish.rb
+october/.delivery/build_cookbook/recipes/syntax.rb
+october/.delivery/build_cookbook/recipes/security.rb
+october/.delivery/build_cookbook/recipes/quality.rb
+october/.delivery/build_cookbook/recipes/provision.rb
+october/.delivery/build_cookbook/recipes/smoke.rb
+october/.delivery/project.toml
+october/.delivery/config.json
+october/chefignore
+october/metadata.rb
+october/.gitignore
+october/CHANGELOG.md
+october/Berksfile
+october/README.md
+october/test/
+october/test/integration/
+october/test/integration/default/
+october/test/integration/default/default_test.rb
+october/LICENSE
+october/spec/
+october/spec/unit/
+october/spec/unit/recipes/
+october/spec/unit/recipes/default_spec.rb
+october/spec/spec_helper.rb
+october/.kitchen.yml
+october/recipes/
+october/recipes/httpd.rb
+october/recipes/default.rb
+october/templates/
+october/templates/index.html.erb
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# ll
+total 20
+-rw-r--r-- 1 root root  588 Oct 11 06:51 chefignore
+drwxr-xr-x 7 root root 4096 Oct 12 07:14 [0m[01;34moctober[0m
+-rw-r--r-- 1 root root 7977 Oct 12 07:20 [01;31moctober.tar.gz[0m
+drwxr-xr-x 6 root root 4096 Oct 11 06:51 [01;34mstarter[0m
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# mv october.tar.gz ../../
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# pwd
+/home/ec2-user/chef-repo/cookbooks
+]0;root@ip-172-31-20-198:/home/ec2-user/chef-repo/cookbooks[root@ip-172-31-20-198 cookbooks]# cd ../../
+]0;root@ip-172-31-20-198:/home/ec2-user[root@ip-172-31-20-198 ec2-user]# ll
+total 114924
+-rw-r--r-- 1 root     root         98304 Oct 12 07:19 12oct2018
+-rw-r--r-- 1 root     root     117553262 Sep 26 18:31 [0m[01;31mchefdk-3.3.23-1.el7.x86_64.rpm[0m
+drwxr-xr-x 7 root     root    
