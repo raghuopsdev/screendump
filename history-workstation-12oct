@@ -1,0 +1,76 @@
+    1  cd chef-repo
+    2  knife ssl check
+    3  ll
+    4  ssh-keygen -t rsa
+    5  ll
+    6  cd /root/.ssh/
+    7  ll
+    8  vi id_rsa.pub 
+    9  cd /home/ec2-user/
+   10  ll
+   11  knife
+   12  cd chef-repo/
+   13  ll
+   14  ssh 172.31.19.204
+   15  knife bootstrap 172.31.19.204 --identity-file=/home/ec2-user/chef-repo/.chef/raghuopsdev.pem --node-name webserver
+   16  ls -la
+   17  cd .chef/
+   18  ll
+   19  cd ..
+   20  ll
+   21  pwd
+   22  mkdir temp
+   23  cd temp/
+   24  ll
+   25  vi directory.rb
+   26  chef-client --local-mode directory.rb 
+   27  ll
+   28  vi httpd.rb
+   29  chef-client -z directory.rb 
+   30  chef-client -z httpd.rb 
+   31  vi httpd.rb 
+   32  chef-client -z httpd.rb 
+   33  ps -ef | grep httpd
+   34  curl ifconfig.co
+   35  vi httpd.rb 
+   36  chef-client -z httpd.rb 
+   37  cd ..
+   38  ll
+   39  cd cookbooks/
+   40  ll
+   41  chef generate cookbook october
+   42  ll
+   43  cd october/
+   44  ll
+   45  cd recipes/
+   46  ll
+   47  cp ../../../temp/httpd.rb .
+   48  ll
+   49  cat httpd.rb >> default.rb 
+   50  vi default.rb 
+   51  cd ..
+   52  pwd
+   53  cd ..
+   54  ll
+   55  knife upload october
+   56  knife node run_list add webserver recipe['october']
+   57  pwd
+   58  ll
+   59  cd october/
+   60  ll
+   61  chef generate template index.html
+   62  ll
+   63  ls templates/
+   64  vi templates/index.html.erb 
+   65  ll
+   66  vi recipes/default.rb 
+   67  cd ..
+   68  ll
+   69  knife upload october
+   70  history
+   71  cd ..
+   72  ll
+   73  cd ..
+   74  ll
+   75  git info
+   76  history > history-workstation-12oct
